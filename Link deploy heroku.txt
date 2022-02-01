@@ -1,0 +1,2 @@
+link deploy heroku
+https://skripsi-fp5-efficientnet.herokuapp.com/

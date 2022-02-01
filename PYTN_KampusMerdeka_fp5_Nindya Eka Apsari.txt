@@ -1,0 +1,11 @@
+Repository:
+https://github.com/nindyaekaapsari/FinalProject5
+
+IPYNB File:
+https://github.com/nindyaekaapsari/FinalProject5/blob/main/PYTN_KampusMerdeka_fp3_Nindya%20Eka%20Apsari.ipynb
+
+Deployment:
+https://github.com/nindyaekaapsari/FinalProject5/tree/main/Model_Deployment
+
+Deployment Heroku:
+https://skripsi-fp5-efficientnet.herokuapp.com/
