@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+    head {
+        overflow: scroll
+    }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Deteksi COVID-19 dan Pneumonia</title>
+</head>
+
+<body>
+    <section class="
+                flex
+                justify-center
+                items-center
+                w-screen
+                h-screen
+                bg-blue-200
+                overflow: scroll
+            ">
+        <main class="
+                    flex flex-col
+                    justify-center
+                    items-center
+                    p-16
+                    bg-white
+                    rounded-lg
+                ">
+            <h1 class="text-3xl text-bold">Deteksi Penyakit COVID-19 dan Pneumonia</h1>
+            <h1 class="text-2xl text-bold">oleh Nindya Eka Apsari</h1>
+
+            {% if uploaded_image %}
+            <div class="row">
+                <div class="column">
+                    <p class="mb-1">Citra Asli</p>
+                    <img src="{{ url_for('send_uploaded_image', filename=uploaded_image)  }}" alt="input" class="mt-8 mb-4 h-48 border-8 border-gray-200 rounded-md">
+                </div>
+                <div class="column">
+                    <p class="mb-1">Citra Heatmap</p>
+                    <img src="./static/images/cam_path.png" alt="heatmap" class="mt-8 mb-4 h-48 border-8 border-gray-200 rounded-md">
+                </div>
+            </div>
+            <img src="./static/images/pieplot.png" width = "350"/>
+            {% else %}
+            <div class="
+                        flex
+                        justify-center
+                        items-center
+                        my-8
+                        w-48
+                        h-48
+                        border-8 border-gray-200
+                        rounded-md
+                    ">
+                <p class="text-center">
+                    Masukkan Citra Rontgen Dada Anda
+                </p>
+            </div>
+            {% endif %} {% if prediction %}
+            <p class="mb-8">Hasil Deteksi Citra Rontgen Dada : {{prediction}}</p>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data" class="flex flex-col">
+                <input type="file" name="image" class="
+                            mb-4
+                            p-4
+                            border-8 border-gray-200
+                            rounded-md
+                            bg-gray-100
+                        " />
+                <button type="submit" class="p-4 bg-blue-600 text-white rounded-md">
+                    Deteksi
+                </button>
+            </form>
+        </main>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
